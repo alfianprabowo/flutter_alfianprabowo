@@ -65,6 +65,7 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
                               Padding(
                                 padding: const EdgeInsets.all(LayoutConstant.spaceL),
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const SizedBox(height: LayoutConstant.spaceL),
                                     Row(
@@ -74,9 +75,7 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
                                         ActionIcon(
                                           icon: Icons.call,
                                           onTap: () {
-                                            controller.makePhoneCall(
-                                              controller.hospital.value.phone!,
-                                            );
+                                            controller.makePhoneCall();
                                           },
                                         ),
 
@@ -84,9 +83,7 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
                                         ActionIcon(
                                           icon: Icons.map_rounded,
                                           onTap: () {
-                                            controller.makePhoneCall(
-                                              controller.hospital.value.phone!,
-                                            );
+                                            controller.getDirection();
                                           },
                                         ),
 
@@ -94,17 +91,25 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
                                         ActionIcon(
                                           icon: Icons.email,
                                           onTap: () {
-                                            controller.makePhoneCall(
-                                              controller.hospital.value.phone!,
-                                            );
+                                            controller.sendEmail();
                                           },
                                         ),
                                       ],
                                     ),
                                     const SizedBox(height: LayoutConstant.spaceXL),
                                     // Description
+                                    const Text(
+                                      TextConst.description,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(height: LayoutConstant.spaceM),
                                     Text(
                                       controller.hospital.value.description!,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                   ],
                                 ),

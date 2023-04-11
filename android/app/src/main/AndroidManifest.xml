@@ -39,7 +39,7 @@
         </intent>
         <!-- call support -->
         <intent>
-            <action android:name="android.intent.action.VIEW" />
+            <action android:name="android.intent.action.DIAL" />
             <data android:scheme="tel" />
         </intent>
         <!-- Mail support -->
