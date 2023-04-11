@@ -1,11 +1,10 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teramedik/app/data/models/hospital.dart';
 import 'package:teramedik/app/data/remote/hospital_list_response.dart';
 import 'package:teramedik/app/modules/home/repositories/hospital_list_repository.dart';
 import 'package:teramedik/app/routes/app_pages.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class HomeController extends GetxController {
   final HospitalListRepository hospitalListRepository;
@@ -30,10 +29,13 @@ class HomeController extends GetxController {
   final quantity = 1.obs;
   final isLastPage = false.obs;
 
+  final version = "".obs;
+
   @override
   void onInit() {
     super.onInit();
     initList();
+    getVersion();
   }
 
   @override
@@ -86,5 +88,10 @@ class HomeController extends GetxController {
       arguments: hospitalId,
       // transition: Transition.leftToRight,
     );
+  }
+
+  Future getVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    version(packageInfo.version);
   }
 }
