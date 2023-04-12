@@ -75,16 +75,19 @@ class HomeView extends GetView<HomeController> {
         body: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildList(controller),
-                    ],
+              child: ListView(
+                controller: controller.scrollController,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildList(controller),
+                      ],
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
             Row(
@@ -102,7 +105,7 @@ class HomeView extends GetView<HomeController> {
                           padding: const EdgeInsets.fromLTRB(
                             0,
                             0,
-                            LayoutConstant.spaceL,
+                            LayoutConstant.spaceXL,
                             0,
                           ),
                           child: Text(

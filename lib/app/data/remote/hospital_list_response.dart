@@ -34,22 +34,16 @@ class HospitalListResponse extends Equatable {
     this.total,
   });
 
-  factory HospitalListResponse.fromRawJson(String str) =>
-      HospitalListResponse.fromJson(json.decode(str));
+  factory HospitalListResponse.fromRawJson(String str) => HospitalListResponse.fromJson(json.decode(str));
 
-  factory HospitalListResponse.fromJson(Map<String, dynamic> json) =>
-      HospitalListResponse(
+  factory HospitalListResponse.fromJson(Map<String, dynamic> json) => HospitalListResponse(
         currentPage: json['current_page'],
-        hospital: json['data'] != null
-            ? List<Hospital>.from(json['data'].map((x) => Hospital.fromJson(x)))
-            : null,
+        hospital: json['data'] != null ? List<Hospital>.from(json['data'].map((x) => Hospital.fromJson(x))) : null,
         firstPageUrl: json['first_page_url'],
         from: json['from'],
         lastPage: json['last_page'],
         lastPageUrl: json['last_page_url'],
-        links: json['links'] != null
-            ? List<Links>.from(json['links'].map((x) => Links.fromJson(x)))
-            : null,
+        links: json['links'] != null ? List<Links>.from(json['links'].map((x) => Links.fromJson(x))) : null,
         nextPageUrl: json['next_page_url'],
         path: json['path'],
         perPage: json['per_page'],
@@ -70,6 +64,18 @@ class HospitalListResponse extends Equatable {
   @override
   List<Object?> get props => [
         hospital,
+        currentPage,
+        firstPageUrl,
+        from,
+        lastPage,
+        lastPageUrl,
+        links,
+        nextPageUrl,
+        path,
+        perPage,
+        prevPageUrl,
+        to,
+        total,
       ];
 }
 

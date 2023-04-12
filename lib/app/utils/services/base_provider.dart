@@ -32,7 +32,6 @@ class BaseProvider extends GetConnect {
     queries.addAll(RequestInterceptor.getQueries);
     queries.forEach((String key, dynamic value) {
       queries![key] = value.toString();
-      debugPrint(queries[key]);
     });
     return super.get(
       url,

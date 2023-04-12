@@ -5,6 +5,7 @@ import 'package:teramedik/app/data/models/hospital.dart';
 import 'package:teramedik/app/data/remote/hospital_detail_response.dart';
 import 'package:teramedik/app/modules/hospital_detail/repositories/hospital_detail_repository.dart';
 import 'package:teramedik/app/utils/constants/layout_const.dart';
+import 'package:teramedik/app/utils/constants/text_const.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:map_launcher/map_launcher.dart';
 
@@ -85,7 +86,7 @@ class HospitalDetailController extends GetxController {
               children: <Widget>[
                 const Padding(
                   padding: EdgeInsets.all(LayoutConstant.spaceL),
-                  child: Text("Buka dengan aplikasi"),
+                  child: Text(TextConst.openWithApp),
                 ),
                 for (AvailableMap map in availableMaps)
                   ListTile(

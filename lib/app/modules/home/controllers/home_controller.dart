@@ -18,15 +18,12 @@ class HomeController extends GetxController {
 
   final hospitalList = <Hospital>[].obs;
   final ScrollController scrollController = ScrollController();
-  final listLength = 20.obs;
-  final loadMore = true.obs;
+  final limit = 20.obs;
   final isLoading = false.obs;
 
   final totalItems = 0.obs;
   final currentPage = 1.obs;
-  final itemPerPage = 4.obs;
   final totalPages = 0.obs;
-  final quantity = 1.obs;
   final isLastPage = false.obs;
 
   final version = "".obs;
@@ -34,13 +31,14 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    initList();
+    getData();
     getVersion();
   }
 
   @override
   void onReady() {
     super.onReady();
+    loadMoreData();
   }
 
   @override
@@ -49,25 +47,25 @@ class HomeController extends GetxController {
     scrollController.dispose();
   }
 
-  initList() async {
+  getData() async {
     isLoading(true);
-    final HospitalListResponse response =
-        await hospitalListRepository.getHospitalList(
+    final HospitalListResponse response = await hospitalListRepository.getHospitalList(
       query: <String, dynamic>{
-        // 'page': currentPage.value,
-        // 'page[size]': itemPerPage.value,
+        'page': currentPage.value,
+        'results': limit.value,
       },
     );
-    hospitalList.addAll(response.hospital!);
-    // debugPrint(response!.hospital!.length.toString());
-    // hospitalList.addAll(response.hospital!);
-    // listLength.value = hospitalList.length;
-    // totalItems.value = response.meta!.totalItems!;
-    // currentPage.value++;
-    // itemPerPage.value = response.meta!.itemPerPage!;
-    // totalPages.value = response.meta!.totalPages!;
-    isLoading(false);
-    update();
+    final bool isDataEmpty = response.hospital!.isEmpty;
+    if (isDataEmpty) {
+      isLastPage(true);
+    } else {
+      hospitalList.addAll(response.hospital!);
+      totalItems.value = response.total!;
+      currentPage.value++;
+      totalPages.value = response.lastPage!;
+      isLoading(false);
+      update();
+    }
   }
 
   changeView() {
@@ -80,7 +78,17 @@ class HomeController extends GetxController {
     }
   }
 
-  getMoreData() async {}
+  loadMoreData() async {
+    scrollController.addListener(() async {
+      if (scrollController.position.maxScrollExtent == scrollController.position.pixels) {
+        if (hospitalList.length == totalItems.value) {
+          isLastPage(true);
+        } else {
+          await getData();
+        }
+      }
+    });
+  }
 
   toHospitalDetail({hospitalId}) async {
     Get.toNamed(
@@ -90,7 +98,7 @@ class HomeController extends GetxController {
     );
   }
 
-  Future getVersion() async {
+  getVersion() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     version(packageInfo.version);
   }

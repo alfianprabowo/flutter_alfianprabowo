@@ -9,4 +9,6 @@ class TextConst {
 
   static const call = "Call";
   static const description = "Deskripsi";
+
+  static const openWithApp = "Buka dengan aplikasi";
 }
