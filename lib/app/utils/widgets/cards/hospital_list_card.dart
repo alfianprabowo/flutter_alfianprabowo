@@ -32,8 +32,7 @@ class HospitalListCard extends StatelessWidget {
             children: [
               Positioned.fill(
                 child: CachedNetworkImage(
-                  imageUrl:
-                      "https://img.etimg.com/thumb/width-1200,height-900,imgsize-16400,resizemode-1,msid-92641715/industry/healthcare/biotech/healthcare/care-acquires-indores-specialty-hospital-chl.jpg",
+                  imageUrl: hospital.image!,
                   imageBuilder: (context, imageProvider) => Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -45,6 +44,17 @@ class HospitalListCard extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
+                  placeholder: (context, url) => const Padding(
+                    padding: EdgeInsets.all(LayoutConstant.spaceL),
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.broken_image,
+                    size: 80,
                   ),
                 ),
               ),

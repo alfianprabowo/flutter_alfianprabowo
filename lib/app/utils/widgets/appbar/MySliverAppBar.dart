@@ -2,13 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:teramedik/app/utils/constants/color_const.dart';
+import 'package:teramedik/app/utils/constants/layout_const.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final String? image;
 
   const MySliverAppBar({
     Key? key,
-    required this.image,
+    this.image,
   }) : super(key: key);
 
   @override
@@ -16,14 +17,27 @@ class MySliverAppBar extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: 250,
       flexibleSpace: FlexibleSpaceBar(
-        background: image != null
-            ? CachedNetworkImage(
+        background: image == ""
+            ? const Center(
+                child: Icon(
+                  Icons.broken_image,
+                  size: 80,
+                ),
+              )
+            : CachedNetworkImage(
                 imageUrl: image!,
                 fit: BoxFit.fill,
-              )
-            : Image.asset(
-                "assets/images/image1.webp",
-                fit: BoxFit.fill,
+                placeholder: (context, url) => const Padding(
+                  padding: EdgeInsets.all(LayoutConstant.spaceL),
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.grey,
+                  ),
+                ),
+                errorWidget: (context, url, error) => const Icon(
+                  Icons.broken_image,
+                  size: 80,
+                ),
               ),
       ),
       backgroundColor: Colors.blue[50],

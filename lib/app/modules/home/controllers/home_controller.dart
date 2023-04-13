@@ -19,7 +19,7 @@ class HomeController extends GetxController {
   final hospitalList = <Hospital>[].obs;
   final ScrollController scrollController = ScrollController();
   final limit = 20.obs;
-  final isLoading = false.obs;
+  final isLoading = true.obs;
 
   final totalItems = 0.obs;
   final currentPage = 1.obs;
@@ -48,7 +48,6 @@ class HomeController extends GetxController {
   }
 
   getData() async {
-    isLoading(true);
     final HospitalListResponse response = await hospitalListRepository.getHospitalList(
       query: <String, dynamic>{
         'page': currentPage.value,

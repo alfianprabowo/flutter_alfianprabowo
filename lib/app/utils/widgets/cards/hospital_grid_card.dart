@@ -34,9 +34,7 @@ class HospitalGridCard extends StatelessWidget {
                 height: 100,
                 width: double.maxFinite,
                 child: CachedNetworkImage(
-                  imageUrl:
-                      "https://img.etimg.com/thumb/width-1200,height-900,imgsize-16400,resizemode-1,msid-92641715/industry/healthcare/biotech/healthcare/care-acquires-indores-specialty-hospital-chl.jpg",
-                  // imageUrl: hospital.image!,
+                  imageUrl: hospital.image!,
                   fit: BoxFit.fill,
                   placeholder: (context, url) => const Padding(
                     padding: EdgeInsets.all(LayoutConstant.spaceL),

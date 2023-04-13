@@ -38,6 +38,7 @@ class HomeView extends GetView<HomeController> {
               scrollDirection: Axis.vertical,
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
+              itemCount: controller.hospitalList.length,
               itemBuilder: ((context, index) {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
@@ -49,7 +50,6 @@ class HomeView extends GetView<HomeController> {
                   ),
                 );
               }),
-              itemCount: controller.hospitalList.length,
             ),
     );
   }
@@ -72,57 +72,61 @@ class HomeView extends GetView<HomeController> {
             ),
           ],
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                controller: controller.scrollController,
+        body: controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _buildList(controller),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.blue[50],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                  Expanded(
+                    child: ListView(
+                      controller: controller.scrollController,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            0,
-                            0,
-                            LayoutConstant.spaceXL,
-                            0,
-                          ),
-                          child: Text(
-                            'Ver. ${controller.version.value}',
-                            style: const TextStyle(
-                              color: primaryColor,
-                            ),
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildList(controller),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.blue[50],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  0,
+                                  0,
+                                  LayoutConstant.spaceXL,
+                                  0,
+                                ),
+                                child: Text(
+                                  'Ver. ${controller.version.value}',
+                                  style: const TextStyle(
+                                    color: primaryColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
       ),
     );
   }

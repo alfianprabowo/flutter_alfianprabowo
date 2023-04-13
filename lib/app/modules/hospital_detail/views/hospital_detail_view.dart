@@ -15,16 +15,16 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
   @override
   Widget build(BuildContext context) {
     return GetX<HospitalDetailController>(
-      builder: (controller) => controller.isLoading.value
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : Scaffold(
-              body: SafeArea(
-                child: CustomScrollView(
+      builder: (controller) => Scaffold(
+        body: SafeArea(
+          child: controller.isLoading.value
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : CustomScrollView(
                   slivers: [
                     MySliverAppBar(
-                      image: controller.hospital.value.image == null ? null : controller.hospital.value.image!,
+                      image: controller.hospital.value.image!,
                     ),
                     SliverList(
                       delegate: SliverChildListDelegate(
@@ -32,6 +32,7 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
                           Column(
                             children: [
                               Container(
+                                width: double.maxFinite,
                                 decoration: BoxDecoration(
                                   color: Colors.blue[50],
                                 ),
@@ -121,8 +122,8 @@ class HospitalDetailView extends GetView<HospitalDetailController> {
                     ),
                   ],
                 ),
-              ),
-            ),
+        ),
+      ),
     );
   }
 }
