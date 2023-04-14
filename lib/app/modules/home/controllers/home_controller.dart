@@ -52,7 +52,7 @@ class HomeController extends GetxController {
     final HospitalListResponse response = await hospitalListRepository.getHospitalList(
       query: <String, dynamic>{
         'page': currentPage.value,
-        'results': 100,
+        'results': limit,
       },
     );
     final bool isDataEmpty = response.hospital!.isEmpty;
