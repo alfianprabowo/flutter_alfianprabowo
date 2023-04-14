@@ -22,6 +22,7 @@ class AppPages {
       name: _Paths.HOSPITAL_DETAIL,
       page: () => const HospitalDetailView(),
       binding: HospitalDetailBinding(),
+      transition: Transition.rightToLeft,
     ),
   ];
 }

@@ -58,59 +58,64 @@ class HospitalListCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(LayoutConstant.spaceM),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        backgroundBlendMode: BlendMode.hardLight,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      padding: const EdgeInsets.all(LayoutConstant.spaceL),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            hospital.name!,
-                            maxLines: 2,
-                            style: const TextStyle(
-                              color: primaryColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          const SizedBox(height: LayoutConstant.spaceS),
-                          Text(
-                            hospital.address!,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 10,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        end: const Alignment(0.0, 1.5),
+                        begin: const Alignment(0.0, -1),
+                        colors: <Color>[
+                          const Color(0x8A000000),
+                          Colors.black.withOpacity(0.0),
                         ],
                       ),
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.end,
-                    //   children: [
-                    //     IconButton(
-                    //       onPressed: onTap,
-                    //       icon: const Icon(
-                    //         Icons.arrow_forward,
-                    //         size: 40,
-                    //         color: Colors.white,
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
-                  ],
-                ),
+                    padding: const EdgeInsets.all(LayoutConstant.spaceL),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          hospital.name!,
+                          maxLines: 2,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        const SizedBox(height: LayoutConstant.spaceS),
+                        Text(
+                          hospital.address!,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconButton(
+                        onPressed: onTap,
+                        icon: const Icon(
+                          Icons.arrow_forward,
+                          size: 40,
+                          color: primaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),

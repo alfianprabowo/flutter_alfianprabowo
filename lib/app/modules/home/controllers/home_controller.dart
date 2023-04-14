@@ -20,6 +20,7 @@ class HomeController extends GetxController {
   final ScrollController scrollController = ScrollController();
   final limit = 20.obs;
   final isLoading = true.obs;
+  final loadMore = false.obs;
 
   final totalItems = 0.obs;
   final currentPage = 1.obs;
@@ -51,12 +52,13 @@ class HomeController extends GetxController {
     final HospitalListResponse response = await hospitalListRepository.getHospitalList(
       query: <String, dynamic>{
         'page': currentPage.value,
-        'results': limit.value,
+        'results': 100,
       },
     );
     final bool isDataEmpty = response.hospital!.isEmpty;
     if (isDataEmpty) {
       isLastPage(true);
+      loadMore(false);
     } else {
       hospitalList.addAll(response.hospital!);
       totalItems.value = response.total!;
@@ -80,11 +82,14 @@ class HomeController extends GetxController {
   loadMoreData() async {
     scrollController.addListener(() async {
       if (scrollController.position.maxScrollExtent == scrollController.position.pixels) {
+        loadMore(true);
         if (hospitalList.length == totalItems.value) {
           isLastPage(true);
+          loadMore(false);
         } else {
           await getData();
         }
+        loadMore(false);
       }
     });
   }
@@ -93,7 +98,6 @@ class HomeController extends GetxController {
     Get.toNamed(
       Routes.HOSPITAL_DETAIL,
       arguments: hospitalId,
-      // transition: Transition.leftToRight,
     );
   }
 

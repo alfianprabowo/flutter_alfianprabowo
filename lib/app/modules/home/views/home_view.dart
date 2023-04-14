@@ -84,11 +84,28 @@ class HomeView extends GetView<HomeController> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildList(controller),
-                            ],
+                          child: Center(
+                            child: Column(
+                              children: [
+                                _buildList(controller),
+                                controller.loadMore.value
+                                    ? const CircularProgressIndicator()
+                                    : Container(
+                                        child: controller.isLastPage.value
+                                            ? const Padding(
+                                                padding: EdgeInsets.all(LayoutConstant.spaceL),
+                                                child: Text(
+                                                  TextConst.allDataDisplayed,
+                                                  style: TextStyle(
+                                                    color: Colors.grey,
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                              )
+                                            : Container(),
+                                      ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

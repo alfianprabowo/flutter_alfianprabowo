@@ -11,4 +11,6 @@ class TextConst {
   static const description = "Deskripsi";
 
   static const openWithApp = "Buka dengan aplikasi";
+
+  static const allDataDisplayed = "Semua data sudah ditampilkan";
 }

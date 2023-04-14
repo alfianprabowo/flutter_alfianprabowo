@@ -21,7 +21,7 @@ class HospitalGridCard extends StatelessWidget {
         onTap: onTap,
         splashColor: primaryColor,
         child: Container(
-          height: 180,
+          height: 200,
           width: 150,
           decoration: BoxDecoration(
             border: Border.all(
@@ -51,7 +51,12 @@ class HospitalGridCard extends StatelessWidget {
               ),
               const SizedBox(height: LayoutConstant.spaceM),
               Padding(
-                padding: const EdgeInsets.all(LayoutConstant.spaceM),
+                padding: const EdgeInsets.fromLTRB(
+                  LayoutConstant.spaceM,
+                  LayoutConstant.spaceM,
+                  LayoutConstant.spaceM,
+                  0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -68,6 +73,7 @@ class HospitalGridCard extends StatelessWidget {
                     const SizedBox(height: LayoutConstant.spaceS),
                     Text(
                       hospital.address!,
+                      maxLines: 2,
                       style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 10,

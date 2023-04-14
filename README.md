@@ -1,15 +1,52 @@
-# teramedik
+# Teramedik
 
-A new Flutter project.
+Aplikasi Mobile yang dibuat menggunakan Flutter untuk menampilkan daftar rumah sakit.
+Dapat melihat detail data rumah sakit berupa foto, alamat, nomor telepon , email dan petunjuk arah ke lokasi rumah sakit.
+
+Di halaman detail terdapat button untuk melakukan panggilan ke rumah sakit yang dipilih dan button untuk mengirimkan email.
+Terdapat juga button untuk membuka aplikasi maps untuk memberikan petunjuk ke lokasi rumah sakit menggunakan koordinat.
+
+## Screenshots
+<p align="center">
+    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/grid_view.jpeg" alt="Grid View" width="200"/>
+    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/list_view.jpeg" alt="List View" width="200"/>
+    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/app_detail.jpeg" alt="Hospital Detail" width="200"/>
+</p>
+
+**Grid View:** 
+
+![image](https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/grid_view.jpeg)
+
+**List View:** 
+
+![image](https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/list_view.jpeg)
+
+**Hospital Detail:** 
+
+![image](https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/app_detail.jpeg)
+
 
 ## Getting Started
+- Run the app
+```
+flutter pub get
+flutter run
+```
+ 
+## State Management
+State Management yang digunakan adalah GetX. Selain befungsi untuk state management, GetX memiliki kelebihan lain yaitu dalam hal route management dan Dependency management.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Package & Library
+```
+- Equatable
+- Cached Network Image
+- Url Launcher
+- Package Info Plus
+- Map Launcher
+- Flutter SVG
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
