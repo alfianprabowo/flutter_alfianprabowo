@@ -7,11 +7,6 @@ Di halaman detail terdapat button untuk melakukan panggilan ke rumah sakit yang 
 Terdapat juga button untuk membuka aplikasi maps untuk memberikan petunjuk ke lokasi rumah sakit menggunakan koordinat.
 
 ## Screenshots
-<p align="center">
-    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/grid_view.jpeg" alt="Grid View" width="200"/>
-    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/list_view.jpeg" alt="List View" width="200"/>
-    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/app_detail.jpeg" alt="Hospital Detail" width="200"/>
-</p>
 
 **Grid View:** 
 
