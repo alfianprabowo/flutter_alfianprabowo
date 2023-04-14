@@ -8,22 +8,22 @@ Terdapat juga button untuk membuka aplikasi maps untuk memberikan petunjuk ke lo
 
 ## Screenshots
 <p align="center">
-    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/grid_view.jpeg" alt="Grid View" width="200"/>
-    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/list_view.jpeg" alt="List View" width="200"/>
+    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/grid_view.jpeg" alt="Grid View" width="200"/>
+    <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/list_view.jpeg" alt="List View" width="200"/>
     <img src="https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/app_detail.jpeg" alt="Hospital Detail" width="200"/>
 </p>
 
 **Grid View:** 
 
-![image](https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/grid_view.jpeg)
+![image](https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/grid_view.jpeg)
 
 **List View:** 
 
-![image](https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/list_view.jpeg)
+![image](https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/list_view.jpeg)
 
 **Hospital Detail:** 
 
-![image](https://github.com/alfianprabowo/flutter_alfianprabowo/screenshots/app_detail.jpeg)
+![image](https://github.com/alfianprabowo/flutter_alfianprabowo/blob/master/screenshots/app_detail.jpeg)
 
 
 ## Getting Started
